@@ -12,6 +12,7 @@ Parte 2: consulta la API REST de Ensembl y compara los transcritos de un gen hum
 import argparse
 import itertools
 import json
+import ssl
 import time
 import urllib.error
 import urllib.request
@@ -76,6 +77,27 @@ def gen_juguete():
 API = "https://rest.ensembl.org"
 
 
+MENSAJE_SSL = (
+    "No se pudo verificar el certificado HTTPS de Ensembl ({}).\n"
+    "Suele deberse a un antivirus o a la red (universidad, empresa) que inspecciona el\n"
+    "tráfico HTTPS con su propio certificado. Solución: instala 'truststore'\n"
+    "(pip install truststore) para que Python use los certificados del sistema, o\n"
+    "ejecuta el script desde otra red.")
+
+
+def usar_certificados_del_sistema():
+    """Hace que Python confíe en los certificados del sistema operativo (Windows/macOS).
+
+    Con 'truststore' instalado se aceptan también las CA que añaden antivirus o redes
+    corporativas; sin él, Python usa solo su propio almacén y puede fallar la verificación.
+    """
+    try:
+        import truststore
+        truststore.inject_into_ssl()
+    except ImportError:
+        pass
+
+
 def pedir_json(ruta, reintentos=4):
     """GET a la API REST de Ensembl con reintentos ante errores temporales (5xx, 429, red)."""
     url = f"{API}{ruta}{'&' if '?' in ruta else '?'}content-type=application/json"
@@ -87,7 +109,9 @@ def pedir_json(ruta, reintentos=4):
             if e.code not in (429, 500, 502, 503, 504) or intento == reintentos:
                 raise
             espera = float(e.headers.get("Retry-After", 2 * intento))
-        except urllib.error.URLError:
+        except urllib.error.URLError as e:
+            if isinstance(e.reason, ssl.SSLCertVerificationError):
+                raise SystemExit(MENSAJE_SSL.format(e.reason)) from None
             if intento == reintentos:
                 raise
             espera = 2 * intento
@@ -102,6 +126,7 @@ def ensembl(simbolo):
     transcritos (FGFR2 tiene 60) la API devuelve a menudo un error 500. En su lugar:
     1) lookup del gen, 2) overlap para listar sus transcritos, 3) lookup de cada uno.
     """
+    usar_certificados_del_sistema()
     print(f"Consultando Ensembl ({API}) para {simbolo}...")
     gen = pedir_json(f"/lookup/symbol/homo_sapiens/{simbolo}")
     transcritos = [t for t in pedir_json(f"/overlap/id/{gen['id']}?feature=transcript")

@@ -1,8 +1,9 @@
 # Del ADN a la proteína: replicación, transcripción, traducción y splicing con Biopython
 
-Universidad de Las Palmas de Gran Canaria · Grado en Ciencia e Ingeniería de Datos
-Bioinformática · Profesora: María Dolores Afonso Suárez · Curso 2026/2027
-**Grupo 19:** Hugo Amador Hidalgo y Sara Lillo
+Universidad de Las Palmas de Gran Canaria · Grado en Ciencia e Ingeniería de Datos  
+Bioinformática · Profesora: María Dolores Afonso Suárez · Curso 2026/2027  
+**Grupo 19:** Hugo Amador Hidalgo y Sara Lillo  
+Repositorio: https://github.com/hugoamadoor/BIOINFORMATICA (carpeta `del-adn-a-la-proteina/`)
 
 El informe en PDF está en [`informe/informe.pdf`](informe/informe.pdf). Este README tiene el mismo contenido, además de las instrucciones de uso del código.
 
@@ -41,6 +42,8 @@ python src/ej6_pipeline.py data/INS_ENST00000381330_cds.fasta \
        --referencia data/P01308_INS_HUMAN.fasta --salida resultados
 python -m pytest -q tests
 ```
+
+Si `--ensembl` falla con `CERTIFICATE_VERIFY_FAILED` (habitual con antivirus o redes que inspeccionan HTTPS), basta con `pip install truststore` (ya incluido en `requirements.txt`): el script lo usa para confiar en los certificados del sistema operativo.
 
 El pipeline guarda en `resultados/` las hebras nuevas, el ARNm y la proteína en FASTA, junto con `pipeline.log`.
 

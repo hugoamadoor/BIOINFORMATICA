@@ -1,0 +1,310 @@
+{
+ "fecha": "2026-09-29 21:12",
+ "resumen": "FGFR2 (ENSG00000066468), cromosoma 10, hebra -: 59 transcritos, 38 codificantes de proteína",
+ "filas": [
+  {
+   "id": "ENST00000358487",
+   "nombre": "FGFR2-206",
+   "exones": 18,
+   "aa": 821,
+   "canonico": true,
+   "mane": true
+  },
+  {
+   "id": "ENST00000457416",
+   "nombre": "FGFR2-215",
+   "exones": 18,
+   "aa": 822,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000369061",
+   "nombre": "FGFR2-213",
+   "exones": 15,
+   "aa": 709,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000357555",
+   "nombre": "FGFR2-205",
+   "exones": 17,
+   "aa": 707,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000613048",
+   "nombre": "FGFR2-224",
+   "exones": 17,
+   "aa": 732,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000638709",
+   "nombre": "FGFR2-227",
+   "exones": 13,
+   "aa": 429,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000682772",
+   "nombre": "FGFR2-231",
+   "exones": 14,
+   "aa": 429,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000351936",
+   "nombre": "FGFR2-203",
+   "exones": 19,
+   "aa": 819,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000682550",
+   "nombre": "FGFR2-230",
+   "exones": 16,
+   "aa": 704,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000683211",
+   "nombre": "FGFR2-235",
+   "exones": 17,
+   "aa": 819,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000478859",
+   "nombre": "FGFR2-218",
+   "exones": 17,
+   "aa": 593,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000684153",
+   "nombre": "FGFR2-240",
+   "exones": 16,
+   "aa": 670,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000356226",
+   "nombre": "FGFR2-204",
+   "exones": 16,
+   "aa": 704,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000369060",
+   "nombre": "FGFR2-212",
+   "exones": 16,
+   "aa": 705,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000369059",
+   "nombre": "FGFR2-211",
+   "exones": 16,
+   "aa": 707,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000429361",
+   "nombre": "FGFR2-214",
+   "exones": 9,
+   "aa": 371,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000346997",
+   "nombre": "FGFR2-202",
+   "exones": 17,
+   "aa": 819,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000360144",
+   "nombre": "FGFR2-208",
+   "exones": 17,
+   "aa": 680,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000369056",
+   "nombre": "FGFR2-209",
+   "exones": 17,
+   "aa": 769,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000369058",
+   "nombre": "FGFR2-210",
+   "exones": 17,
+   "aa": 768,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000336553",
+   "nombre": "FGFR2-201",
+   "exones": 16,
+   "aa": 669,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000359354",
+   "nombre": "FGFR2-207",
+   "exones": 7,
+   "aa": 254,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000613324",
+   "nombre": "FGFR2-225",
+   "exones": 3,
+   "aa": 136,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000611527",
+   "nombre": "FGFR2-223",
+   "exones": 2,
+   "aa": 64,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000683035",
+   "nombre": "FGFR2-234",
+   "exones": 3,
+   "aa": 153,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000937092",
+   "nombre": "FGFR2-242",
+   "exones": 14,
+   "aa": 600,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000937093",
+   "nombre": "FGFR2-243",
+   "exones": 18,
+   "aa": 813,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000985634",
+   "nombre": "FGFR2-244",
+   "exones": 18,
+   "aa": 820,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00000985636",
+   "nombre": "FGFR2-246",
+   "exones": 2,
+   "aa": 56,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001044438",
+   "nombre": "FGFR2-247",
+   "exones": 18,
+   "aa": 785,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001044439",
+   "nombre": "FGFR2-248",
+   "exones": 17,
+   "aa": 731,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001044440",
+   "nombre": "FGFR2-249",
+   "exones": 17,
+   "aa": 697,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001044441",
+   "nombre": "FGFR2-250",
+   "exones": 18,
+   "aa": 802,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001044442",
+   "nombre": "FGFR2-251",
+   "exones": 18,
+   "aa": 786,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001075072",
+   "nombre": "FGFR2-256",
+   "exones": 18,
+   "aa": 766,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001106189",
+   "nombre": "FGFR2-257",
+   "exones": 7,
+   "aa": 317,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001142304",
+   "nombre": "FGFR2-258",
+   "exones": 18,
+   "aa": 821,
+   "canonico": false,
+   "mane": false
+  },
+  {
+   "id": "ENST00001142305",
+   "nombre": "FGFR2-259",
+   "exones": 18,
+   "aa": 822,
+   "canonico": false,
+   "mane": false
+  }
+ ]
+}
