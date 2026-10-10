@@ -36,12 +36,15 @@ python src/ej2_transcripcion.py data/ej2_molde.fasta --hebra molde
 python src/ej3_traduccion.py
 python src/ej4_splicing.py
 python src/ej4_splicing.py --ensembl FGFR2        # requiere conexión a Internet
+python src/ej4_splicing.py --ensembl FGFR2 --recargar   # repite la consulta guardada
 python src/ej5_proteinas.py
 python src/ej5_proteinas.py --pdb 4HHB.pdb        # fichero descargado de https://www.rcsb.org
 python src/ej6_pipeline.py data/INS_ENST00000381330_cds.fasta \
        --referencia data/P01308_INS_HUMAN.fasta --salida resultados
 python -m pytest -q tests
 ```
+
+La consulta a Ensembl pide los transcritos en lotes de 10, reintenta ante errores temporales del servidor y guarda el resultado en `resultados/ensembl_<GEN>.json`, de modo que las siguientes ejecuciones se muestran al instante sin conexión.
 
 Si `--ensembl` falla con `CERTIFICATE_VERIFY_FAILED` (habitual con antivirus o redes que inspeccionan HTTPS), basta con `pip install truststore` (ya incluido en `requirements.txt`): el script lo usa para confiar en los certificados del sistema operativo.
 

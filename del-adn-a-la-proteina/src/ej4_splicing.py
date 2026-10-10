@@ -2,6 +2,7 @@
 
 Uso:  python src/ej4_splicing.py                 # gen de juguete con 5 exones
       python src/ej4_splicing.py --ensembl FGFR2  # isoformas reales (requiere Internet)
+      python src/ej4_splicing.py --ensembl FGFR2 --recargar  # ignora la consulta guardada
 
 Parte 1: los exones 1 y 5 son constitutivos y los exones 2, 3 y 4 pueden incluirse
 o saltarse, lo que da 2^3 = 8 isoformas. Para cada una se comprueba si conserva la
@@ -12,6 +13,7 @@ Parte 2: consulta la API REST de Ensembl y compara los transcritos de un gen hum
 import argparse
 import itertools
 import json
+import os
 import ssl
 import time
 import urllib.error
@@ -98,56 +100,103 @@ def usar_certificados_del_sistema():
         pass
 
 
-def pedir_json(ruta, reintentos=4):
-    """GET a la API REST de Ensembl con reintentos ante errores temporales (5xx, 429, red)."""
-    url = f"{API}{ruta}{'&' if '?' in ruta else '?'}content-type=application/json"
+def pedir_json(ruta, datos=None, reintentos=4, timeout=30):
+    """Petición a la API REST de Ensembl (GET, o POST si se pasan datos) con reintentos
+    ante errores temporales: 429 (demasiadas peticiones), 5xx, cortes de red y timeouts."""
+    url = f"{API}{ruta}"
+    cabeceras = {"Content-Type": "application/json", "Accept": "application/json"}
+    cuerpo = json.dumps(datos).encode() if datos is not None else None
     for intento in range(1, reintentos + 1):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
+            peticion = urllib.request.Request(url, data=cuerpo, headers=cabeceras)
+            with urllib.request.urlopen(peticion, timeout=timeout) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504) or intento == reintentos:
                 raise
-            espera = float(e.headers.get("Retry-After", 2 * intento))
+            motivo = f"HTTP {e.code}"
+            espera = float(e.headers.get("Retry-After") or 2 * intento)
         except urllib.error.URLError as e:
             if isinstance(e.reason, ssl.SSLCertVerificationError):
                 raise SystemExit(MENSAJE_SSL.format(e.reason)) from None
             if intento == reintentos:
                 raise
-            espera = 2 * intento
-        print(f"  (Ensembl no responde, reintento {intento}/{reintentos - 1} en {espera:.0f} s)")
+            motivo, espera = f"error de red: {e.reason}", 2 * intento
+        except TimeoutError:
+            if intento == reintentos:
+                raise
+            motivo, espera = f"sin respuesta en {timeout} s", 2 * intento
+        print(f"    Ensembl: {motivo}; reintento {intento}/{reintentos - 1} en {espera:.0f} s")
         time.sleep(espera)
 
 
-def ensembl(simbolo):
+def detalles_transcritos(ids, lote=10):
+    """Exones y longitud de la proteína de cada transcrito.
+
+    Se piden en lotes con POST /lookup/id (una petición por cada 10 transcritos en vez
+    de una por transcrito). Si un lote falla, se piden sus transcritos uno a uno.
+    """
+    detalles = {}
+    for i in range(0, len(ids), lote):
+        grupo = ids[i:i + lote]
+        print(f"  Transcritos {i + 1}-{i + len(grupo)} de {len(ids)}...")
+        try:
+            detalles.update(pedir_json("/lookup/id", {"ids": grupo, "expand": 1}) or {})
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError):
+            print("    El lote ha fallado; se piden uno a uno")
+            for t in grupo:
+                detalles[t] = pedir_json(f"/lookup/id/{t}?expand=1")
+        time.sleep(0.2)
+    return detalles
+
+
+def ensembl(simbolo, recargar=False):
     """Lista los transcritos codificantes de un gen humano con su nº de exones y longitud.
 
     No se usa lookup/symbol?expand=1 sobre el gen completo porque en genes con muchos
-    transcritos (FGFR2 tiene 60) la API devuelve a menudo un error 500. En su lugar:
-    1) lookup del gen, 2) overlap para listar sus transcritos, 3) lookup de cada uno.
+    transcritos (FGFR2 tiene 59) la API devuelve a menudo un error 500. En su lugar:
+    1) lookup del gen, 2) overlap para listar sus transcritos, 3) detalles por lotes.
+    El resultado se guarda en resultados/ensembl_<GEN>.json para no repetir la consulta.
     """
+    cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "resultados",
+                         f"ensembl_{simbolo.upper()}.json")
+    if os.path.exists(cache) and not recargar:
+        with open(cache, encoding="utf-8") as f:
+            guardado = json.load(f)
+        print(f"Usando la consulta guardada en {os.path.normpath(cache)} "
+              f"({guardado['fecha']}). Usa --recargar para repetirla.")
+        print(guardado["resumen"])
+        imprimir_tabla(guardado["filas"])
+        return
+
     usar_certificados_del_sistema()
     print(f"Consultando Ensembl ({API}) para {simbolo}...")
     gen = pedir_json(f"/lookup/symbol/homo_sapiens/{simbolo}")
     transcritos = [t for t in pedir_json(f"/overlap/id/{gen['id']}?feature=transcript")
                    if t.get("Parent") == gen["id"]]
     codif = [t for t in transcritos if t.get("biotype") == "protein_coding"]
-    print(f"{gen.get('display_name')} ({gen['id']}), cromosoma {gen.get('seq_region_name')}, "
-          f"hebra {'+' if gen.get('strand') == 1 else '-'}: {len(transcritos)} transcritos, "
-          f"{len(codif)} codificantes de proteína. Descargando detalles...")
+    resumen = (f"{gen.get('display_name')} ({gen['id']}), cromosoma {gen.get('seq_region_name')}, "
+               f"hebra {'+' if gen.get('strand') == 1 else '-'}: {len(transcritos)} transcritos, "
+               f"{len(codif)} codificantes de proteína")
+    print(resumen + ". Descargando detalles...")
+    detalles = detalles_transcritos([t["id"] for t in codif])
     filas = []
     for t in codif:
-        detalle = pedir_json(f"/lookup/id/{t['id']}?expand=1")
+        d = detalles.get(t["id"]) or {}
         filas.append({
             "id": t["id"],
             "nombre": t.get("external_name", ""),
-            "exones": len(detalle.get("Exon", [])),
-            "aa": (detalle.get("Translation") or {}).get("length", 0),
+            "exones": len(d.get("Exon", [])),
+            "aa": (d.get("Translation") or {}).get("length", 0),
             "canonico": bool(t.get("is_canonical")),
             "mane": "MANE_Select" in (t.get("tag") or []),
         })
-        time.sleep(0.1)   # la API admite ~15 peticiones/s
     imprimir_tabla(filas)
+    os.makedirs(os.path.dirname(cache), exist_ok=True)
+    with open(cache, "w", encoding="utf-8") as f:
+        json.dump({"fecha": time.strftime("%Y-%m-%d %H:%M"), "resumen": resumen, "filas": filas},
+                  f, ensure_ascii=False, indent=1)
+    print(f"Consulta guardada en {os.path.normpath(cache)}")
 
 
 def imprimir_tabla(filas):
@@ -164,11 +213,12 @@ def imprimir_tabla(filas):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--ensembl", metavar="GEN", help="símbolo de un gen humano, p. ej. FGFR2")
+    p.add_argument("--recargar", action="store_true", help="repite la consulta aunque haya una guardada")
     a = p.parse_args()
     if a.ensembl:
         try:
-            ensembl(a.ensembl)
-        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            ensembl(a.ensembl, a.recargar)
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
             raise SystemExit(f"No se pudo consultar Ensembl ({e}). Prueba de nuevo en unos minutos.")
     else:
         gen_juguete()
