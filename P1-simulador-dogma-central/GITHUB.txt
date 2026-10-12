@@ -1,0 +1,9 @@
+Práctica 1: Simulación del dogma central de la biología molecular
+Bioinformática (prácticas de laboratorio) - ULPGC - Curso 2026/2027
+Grupo 19: Hugo Amador Hidalgo y Sara Lillo
+
+Repositorio en GitHub:
+https://github.com/hugoamadoor/BIOINFORMATICA/tree/main/P1-simulador-dogma-central
+
+Repositorio completo de la asignatura:
+https://github.com/hugoamadoor/BIOINFORMATICA

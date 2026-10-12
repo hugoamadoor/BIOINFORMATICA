@@ -2,7 +2,8 @@
 
 Universidad de Las Palmas de Gran Canaria · Grado en Ciencia e Ingeniería de Datos  
 Bioinformática (prácticas de laboratorio) · Profesora: María Dolores Afonso Suárez · Curso 2026/2027  
-**Grupo 19:** Hugo Amador Hidalgo y Sara Lillo
+**Grupo 19:** Hugo Amador Hidalgo y Sara Lillo  
+Repositorio: https://github.com/hugoamadoor/BIOINFORMATICA/tree/main/P1-simulador-dogma-central
 
 Programa en Python que simula, paso a paso y en la terminal, el flujo completo de la
 información genética a partir de una molécula de ADN:
