@@ -1,0 +1,238 @@
+LOCUS       NZ_CP167936             4439 bp    DNA     circular CON 06-AUG-2026
+DEFINITION  Staphylococcus aureus strain CUBIST-41 plasmid pT181, complete
+            sequence.
+ACCESSION   NZ_CP167936
+VERSION     NZ_CP167936.1
+DBLINK      BioProject: PRJNA224116
+            BioSample: SAMN43213418
+            Assembly: GCF_041518565.1
+KEYWORDS    RefSeq.
+SOURCE      Staphylococcus aureus
+  ORGANISM  Staphylococcus aureus
+            Bacteria; Bacillati; Bacillota; Bacilli; Caryophanales;
+            Staphylococcaceae; Staphylococcus.
+REFERENCE   1  (bases 1 to 4439)
+  AUTHORS   Bayer,A.S., Berti,A.D. and Rybak,M.J.
+  TITLE     Pre-publication release of Staphylococcus aureus str CUBIST-41
+            whole genome sequence
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 4439)
+  AUTHORS   Bayer,A.S., Berti,A.D. and Rybak,M.J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (19-AUG-2024) Pharmacy Practice, Wayne State University,
+            259 Mack Ave, Detroit, MI 48201, USA
+COMMENT     REFSEQ INFORMATION: The reference sequence is identical to
+            CP167936.1.
+            Bacteria and source DNA available from Michael Rybak, Wayne State
+            University College of Pharmacy and Health Sciences.
+            The annotation was added by the NCBI Prokaryotic Genome Annotation
+            Pipeline (PGAP). Information about PGAP can be found here:
+            https://www.ncbi.nlm.nih.gov/genome/annotation_prok/
+            
+            ##Genome-Assembly-Data-START##
+            Assembly Date          :: AUG-2024
+            Assembly Method        :: Flye v. v2.9.1
+            Assembly Name          :: CUBIST-41
+            Genome Representation  :: Full
+            Expected Final Version :: Yes
+            Genome Coverage        :: 84.0x
+            Sequencing Technology  :: Oxford Nanopore
+            ##Genome-Assembly-Data-END##
+            
+            ##Genome-Annotation-Data-START##
+            Annotation Provider               :: NCBI RefSeq
+            Annotation Name                   :: GCF_041518565.1-RS_2026_08_06
+            Annotation Date                   :: 08/06/2026 06:08:47
+            Annotation Pipeline               :: NCBI Prokaryotic Genome
+                                                 Annotation Pipeline (PGAP)
+            Annotation Method                 :: Best-placed reference protein
+                                                 set; GeneMarkS-2+
+            Annotation Software revision      :: 6.11
+            Features Annotated                :: Gene; CDS; rRNA; tRNA; ncRNA
+            Genes (total)                     :: 2,897
+            CDSs (total)                      :: 2,815
+            Genes (coding)                    :: 2,733
+            CDSs (with protein)               :: 2,733
+            Genes (RNA)                       :: 82
+            rRNAs                             :: 7, 6, 6 (5S, 16S, 23S)
+            complete rRNAs                    :: 7, 6, 6 (5S, 16S, 23S)
+            tRNAs                             :: 59
+            ncRNAs                            :: 4
+            Pseudo Genes (total)              :: 82
+            CDSs (without protein)            :: 82
+            Pseudo Genes (ambiguous residues) :: 0 of 82
+            Pseudo Genes (frameshifted)       :: 45 of 82
+            Pseudo Genes (incomplete)         :: 39 of 82
+            Pseudo Genes (internal stop)      :: 13 of 82
+            Pseudo Genes (multiple problems)  :: 14 of 82
+            ##Genome-Annotation-Data-END##
+            COMPLETENESS: full length.
+FEATURES             Location/Qualifiers
+     source          1..4439
+                     /organism="Staphylococcus aureus"
+                     /mol_type="genomic DNA"
+                     /strain="CUBIST-41"
+                     /isolation_source="blood"
+                     /host="Homo sapiens"
+                     /db_xref="taxon:1280"
+                     /plasmid="pT181"
+                     /collected_by="Cubist Pharmaceuticals"
+                     /genotype="ST8-MRSA-IVa CC8"
+     gene            32..976
+                     /locus_tag="ACCK14_RS14490"
+                     /old_locus_tag="ACCK14_14490"
+     CDS             32..976
+                     /locus_tag="ACCK14_RS14490"
+                     /old_locus_tag="ACCK14_14490"
+                     /inference="COORDINATES: similar to AA
+                     sequence:RefSeq:WP_000277654.1"
+                     /GO_function="GO:0003677 - DNA binding [Evidence IEA];
+                     GO:0003916 - DNA topoisomerase activity [Evidence IEA]"
+                     /GO_process="GO:0006270 - DNA replication initiation
+                     [Evidence IEA]"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="replication initiation factor domain-containing
+                     protein"
+                     /protein_id="WP_000277652.1"
+                     /translation="MYKNNHANHSNHLENHDLDNFSKTGYSNSRLDAHTVCISDPKLS
+                     FDAMTIVGNLNRDNAQALSKFMSVEPQIRLWDILQTKFKAKALQEKVYIEYDKVKADS
+                     WDRRNMRIEFNPNKLTRDEMIWLKQNIISYMEDDGFTRLDLAFDFEDDLSDYYAMSDK
+                     AVKKTIFYGRNGKPETKYFGVRDSNRFIRIYNKKKERKDNADAEVMSEHLWRVEIELK
+                     RDMVDYWNDCFSDLHILQPDWKTIQRTADRAIVFMLLSDEEEWGKLHRNSRTKYKNLI
+                     KEISPVDLTDLMKSTLKANEKQLQKQIDFWQHEFKFWK"
+     gene            1138..2517
+                     /gene="tet(K)"
+                     /locus_tag="ACCK14_RS14495"
+                     /old_locus_tag="ACCK14_14495"
+     CDS             1138..2517
+                     /gene="tet(K)"
+                     /locus_tag="ACCK14_RS14495"
+                     /old_locus_tag="ACCK14_14495"
+                     /inference="COORDINATES: similar to AA
+                     sequence:RefSeq:WP_000492283.1"
+                     /GO_function="GO:0008493 - tetracycline transmembrane
+                     transporter activity [Evidence IEA]"
+                     /GO_process="GO:0015904 - tetracycline transmembrane
+                     transport [Evidence IEA]"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="tetracycline efflux MFS transporter Tet(K)"
+                     /protein_id="WP_000492284.1"
+                     /translation="MFSLYKKFKGLFYSVLFWLCILSFFSVLNEMVLNVSLPDIANHF
+                     NTTPGITNWVNTAYMLTFSIGTAVYGKLSDYINIKKLLIIGISLSCLGSLIAFIGHNH
+                     FFILIFGRLVQGVGSAAFPSLIMVVVARNITRKKQGKAFGFIGSIVALGEGLGPSIGG
+                     IIAHYIHWSYLLILPMITIVTIPFLIKVMVPGKSTKNTLDIVGIVLMSISIICFMLFT
+                     TNYNWTFLILFTIFFVIFIKHISRVSNPFINPKLGKNIPFMLGLFSGGLIFSIVAGFI
+                     SMVPYMMKTIYHVNVATIGNSVIFPGTMSVIVFGYFGGFLVDRKGSLFVFILGSLSIS
+                     ISFLTIAFFVEFSMWLTTFMFIFVMGGLSFTKTVISKIVSSSLSEEEVASGMSLLNFT
+                     SFLSEGTGIAIVGGLLSLQLINRKLVLEFINYSSGVYSNILVAMAILIILCCLLTIIV
+                     FKRSKKQFE"
+     gene            2703..3944
+                     /gene="mobV"
+                     /locus_tag="ACCK14_RS14500"
+                     /old_locus_tag="ACCK14_14500"
+     CDS             2703..3944
+                     /gene="mobV"
+                     /locus_tag="ACCK14_RS14500"
+                     /old_locus_tag="ACCK14_14500"
+                     /inference="COORDINATES: similar to AA
+                     sequence:RefSeq:WP_010889940.1"
+                     /GO_function="GO:0003677 - DNA binding [Evidence IEA]"
+                     /GO_process="GO:0006310 - DNA recombination [Evidence
+                     IEA]"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="MobV family relaxase"
+                     /protein_id="WP_000122374.1"
+                     /translation="MSYSIVRVSKVKSGTNTTGIQKHVQRENNNYENEDIDHSKTYLN
+                     YDLVNANKQNFNNLIDEKIEQNYTGKRKIRTDAIKHIDGLITSDNDFFDNQTPEDTKQ
+                     FFEYAKEFLEQEYGKDNLLYATVHMDEKTPHMHYGVVPITDDGRLSAKEVVGNKKALT
+                     AFQDRFNEHVKQRGYDLERGQSRQVTNAKHEQISQYKQKTEYHKQEYERESQKTDHIK
+                     QKNDKLMQEYQKSLNTLKKPINVPYEQETEKVGGLFSKEIQETGNVVISQKDFNEFQK
+                     QIKAAQDISEDYEYIKSGRALDDKDKEIREKDDLLNKAVERIENADDNFNQLYENAKP
+                     LKENIEIALKLLKILLKELERVLGRNTFAERVNKLTEDEPKLNGLAGNLDKKMNPELY
+                     SEQEQQQEQQKNQKRDRGMHL"
+ORIGIN      
+        1 aacgaaattg agattaagga gtcgattttt tatgtataaa aacaatcatg caaatcattc
+       61 aaatcatttg gaaaatcacg atttagacaa tttttctaaa accggctact ctaatagccg
+      121 gttggacgca catactgtgt gcatatctga tccaaaatta agttttgatg caatgacgat
+      181 cgttggaaat ctcaaccgag acaacgctca agccctttct aaatttatga gtgtagagcc
+      241 ccaaataaga ctttgggata ttcttcaaac aaagtttaaa gctaaagcac ttcaagaaaa
+      301 agtttatatt gaatatgaca aagtgaaagc agatagttgg gatagacgta atatgcgtat
+      361 tgaatttaat ccaaacaaac ttacacgaga tgaaatgatt tggttaaaac aaaatataat
+      421 aagctacatg gaagatgacg gttttacaag attagattta gcctttgatt ttgaagatga
+      481 tttgagtgac tactatgcaa tgtctgataa agcagttaag aaaactattt tttatggtcg
+      541 taatggtaag ccagaaacaa aatattttgg cgtgagagat agtaatagat ttattagaat
+      601 ttataataaa aagaaagaac gtaaagataa tgcagatgct gaagttatgt ctgaacattt
+      661 atggcgtgta gaaatcgaac ttaaaagaga tatggtggat tactggaatg attgctttag
+      721 tgatttacat atcttgcaac cagattggaa aactatccaa cgcactgcgg atagagcaat
+      781 agtttttatg ttattgagtg atgaagaaga atggggaaag cttcacagaa attctagaac
+      841 aaaatataag aatttgataa aagaaatttc gccagtcgat ttaacggact taatgaaatc
+      901 gactttaaaa gcgaacgaaa aacaattgca aaaacaaatc gatttttggc aacatgaatt
+      961 taaattttgg aaatagtgta catattaata ttactgaaca aaaatgatat atttaaacta
+     1021 ttctaattta ggaggatttt tttatgaagt gtctatttaa aaatttgggg aatttatatg
+     1081 aggtgaaaga ataatttacc cctataaact ttagtcacct caagtaaaga ggtaaaattg
+     1141 tttagtttat ataaaaaatt taaaggtttg ttttatagcg ttttattttg gctttgtatt
+     1201 ctttcatttt ttagtgtatt aaatgaaatg gttttaaatg tttctttacc tgatattgca
+     1261 aatcatttta atactactcc tggaattaca aactgggtaa acactgcata tatgttaact
+     1321 ttttcgatag gaacagcagt atatggaaaa ttatctgatt atataaatat aaaaaaattg
+     1381 ttaattattg gtattagttt gagctgtctt ggttcattga ttgcttttat tggtcacaat
+     1441 cactttttta ttttgatttt tggtaggtta gtacaaggag taggatctgc tgcattccct
+     1501 tcactgatta tggtggttgt agctagaaat attacaagaa aaaaacaagg caaagccttt
+     1561 ggttttatag gatcaattgt agctttaggt gaagggttag gtccttcaat agggggaata
+     1621 atagcacatt atattcattg gtcttaccta cttatacttc ctatgattac aatagtaact
+     1681 ataccttttc ttattaaagt aatggtacct ggtaaatcaa caaaaaatac attagatatc
+     1741 gtaggtattg ttttaatgtc tataagtatt atatgtttta tgttatttac gacaaattat
+     1801 aattggactt ttttaatact cttcacaatc ttttttgtga tttttattaa acatatttca
+     1861 agagtttcta acccttttat taatcctaaa ctagggaaaa acattccgtt tatgcttggt
+     1921 ttgttttctg gtgggctaat attttctata gtagctggtt ttatatcaat ggtgccttat
+     1981 atgatgaaaa ctatttatca tgtaaatgta gcgacaatag gtaatagtgt tatttttcct
+     2041 ggaaccatga gtgttattgt ttttggttat tttggtggtt ttttagtgga tagaaaagga
+     2101 tcattatttg tttttatttt aggatcattg tctatctcta taagtttttt aactattgca
+     2161 ttttttgttg agtttagtat gtggttgact acttttatgt ttatatttgt tatgggcgga
+     2221 ttatctttta ctaaaacagt tatatcaaaa atagtatcaa gtagtctttc tgaagaagaa
+     2281 gttgcttctg gaatgagttt gctaaatttc acaagttttt tatcagaggg aacaggtata
+     2341 gcaattgtag gaggtttatt gtcactacaa ttgattaatc gtaaactagt tctggaattt
+     2401 ataaattatt cttctggagt gtatagtaat attcttgtag ccatggctat ccttattatt
+     2461 ttatgttgtc ttttgacgat tattgtattt aaacgttcta aaaagcagtt tgaatagtta
+     2521 tattatattt tggtttagaa ctatgagtgg ctagcatttt gccactcatt ttttgcgtta
+     2581 gcaaaaacag gtttaagcct cgcagagcac acgtattaac gacttattaa aaataagtct
+     2641 agtgtgttag acttaaacta ttaaatacac atgaaacctt tgtgcttagg agtgattttt
+     2701 atatgtctta ttccattgtt agagtttcaa aagttaaatc tggaacaaat acaacgggca
+     2761 tacaaaaaca tgttcaaaga gaaaataata attatgaaaa tgaagatata gaccatagta
+     2821 aaacttactt aaattatgat ttggtaaatg ctaataaaca gaattttaat aacttgattg
+     2881 atgaaaaaat cgaacagaat tatacaggca aaagaaaaat tagaacagac gcgattaaac
+     2941 acattgatgg tttaattaca tcagacaatg atttctttga taatcaaacg ccagaagata
+     3001 caaagcagtt ttttgaatat gctaaagagt ttttagaaca agaatacggt aaagataatt
+     3061 tattatatgc aacagttcac atggacgaaa aaacaccaca tatgcattat ggcgttgttc
+     3121 caataactga tgatggtcgt ttaagtgcta aagaagttgt aggtaataaa aaagctttaa
+     3181 cagcgtttca agatagattt aatgagcatg ttaaacaacg aggatatgat ttagaacgtg
+     3241 ggcaatcaag acaagtaaca aatgctaaac atgagcaaat aagtcagtat aaacaaaaaa
+     3301 cagaatatca taagcaagaa tatgaacgtg agagccaaaa aacagaccat ataaagcaaa
+     3361 agaacgataa attaatgcaa gagtaccaaa aatcgttaaa tacgcttaaa aagcctataa
+     3421 atgttccgta tgagcaagaa actgaaaaag taggtggttt atttagcaaa gaaatacaag
+     3481 aaactggaaa tgttgtaata agccaaaaag atttcaatga atttcagaaa cagataaaag
+     3541 ctgctcaaga tatttcggaa gattacgagt atataaagtc tggtagagcc ttagatgata
+     3601 aagataagga aatacgagag aaagatgatt tattaaataa agcagttgag cgtattgaaa
+     3661 acgcagacga taattttaac caactttacg aaaatgcaaa gccacttaaa gagaatatag
+     3721 aaatagcgtt aaagctttta aaaatcttac taaaagagtt agaacgagtt ttaggaagaa
+     3781 atacctttgc ggaaagagtt aataagttaa cagaagatga accaaaacta aatggtttag
+     3841 caggaaactt agataaaaaa atgaatccag aattatattc agaacaggaa cagcaacaag
+     3901 aacaacaaaa gaatcaaaaa cgagatagag gtatgcactt atagaacatg catttatgcc
+     3961 gagaaaactt attggttgga atgggctatg tgttagctaa cttgttagcg agttggttgg
+     4021 acttgaattg ggattaatcc caagaaagta ccaactcaac aacacataaa gccctgtagg
+     4081 ttccgaccaa taaggaaatt ggaataaagc aataaaagga gttgaagaaa tgaaattcag
+     4141 agaagccttt gagaatttta taacaagtaa gtatgtactt ggtgttttag tagttttaac
+     4201 tgtttaccag ataatacaaa tgcttaaata aaaaaagact tgatctgatt agaccaagtc
+     4261 ttttgatagt gttatattaa taacaaaata aaaaggagtc gctcacgccc tgaccaaagt
+     4321 ttgtgaacga catcattcaa agaaaaaaac actgagttat ttttataatc ttgtatattt
+     4381 agatattaaa cgatatttaa atatacatca agatatatat ttgggtgagc gattcctta
+//
+
