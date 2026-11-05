@@ -5,9 +5,8 @@ from urllib.error import HTTPError, URLError
 
 from Bio import Entrez, SeqIO
 
-# El NCBI exige identificarse con un correo. Cámbialo por el tuyo de la ULPGC
-# o defínelo en la variable de entorno NCBI_EMAIL.
-Entrez.email = os.environ.get("NCBI_EMAIL", "alumno.0000@ulpgc.es")
+
+Entrez.email = os.environ.get("NCBI_EMAIL", "hugo.amador101@alu.ulpgc.es")
 
 CARPETA_RESULTADOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "resultados")
 os.makedirs(CARPETA_RESULTADOS, exist_ok=True)
