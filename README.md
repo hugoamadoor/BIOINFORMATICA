@@ -8,5 +8,6 @@ Profesora: María Dolores Afonso Suárez · Curso 2026/2027
 |---|---|---|
 | [del-adn-a-la-proteina](del-adn-a-la-proteina/) | Del ADN a la proteína: replicación, transcripción, traducción y splicing con Biopython | Prácticas de aula |
 | [P1-simulador-dogma-central](P1-simulador-dogma-central/) | Práctica 1: simulador del dogma central de la biología molecular | Prácticas de laboratorio | [hoja-ejercicios-1-biopython](hoja-ejercicios-1-biopython) | Hoja de Ejercicios 1: Biopython, ficheros y bases de datos | Prácticas de laboratorio |
+| [hoja-ejercicios-1-biopython](hoja-ejercicios-1-biopython) | Hoja de Ejercicios 1: Biopython, ficheros y bases de datos | Prácticas de laboratorio |
 
 Cada carpeta tiene su propio README con la explicación del trabajo y las instrucciones para ejecutarlo.
